@@ -59,6 +59,7 @@ runs:
   steps:
   - id: kaniko-build
     run: |
+      set +e
       echo -e "${BLUE}[ STEP - BUILDING IMAGE ] > Building docker image ${{ inputs.img-name }}:${{ inputs.tag }} with Kaniko.${BLANK}"
       echo -e "${CYAN}[ INFO ] > Kaniko version.${BLANK}"
       executor version
