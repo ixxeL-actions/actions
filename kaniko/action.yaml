@@ -43,13 +43,13 @@ inputs:
     default: 'true'
   snapshot-mode:
     required: false
-    default: 'full'
+    default: full
   no-push:
     required: false
     default: 'true'
   verbosity:
     required: false
-    default: 'info'
+    default: info
   compressed-caching:
     required: false
     default: 'true'
