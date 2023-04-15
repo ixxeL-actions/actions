@@ -4,6 +4,7 @@ description: Scanning files with Checkov
 author: ixxeL
 inputs:
   artefact:
+    description: Name of the file or directory to scan
     required: true
   compact:
     required: false
