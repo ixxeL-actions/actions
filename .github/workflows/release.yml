@@ -16,12 +16,14 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - uses: arduino/setup-task@v2
-        with:
-          version: 3.x
-          repo-token: ${{ secrets.MY_RELEASE_PLEASE_TOKEN }}
-      - run: task version
-      - run: task build
+      - uses: DeterminateSystems/nix-installer-action@main
+      - run: nix build .
+      # - uses: arduino/setup-task@v2
+      #   with:
+      #     version: 3.x
+      #     repo-token: ${{ secrets.MY_RELEASE_PLEASE_TOKEN }}
+      - run: nix-shell --run "task version"
+      - run: nix-shell --run "task build"
     
       # - uses: google-github-actions/release-please-action@v4
       #   id: release
