@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.4](https://github.com/ixxeL-actions/actions/compare/v1.2.3...v1.2.4) (2024-02-14)
+
+
+### Bug Fixes
+
+* goreleaser ([f9e7812](https://github.com/ixxeL-actions/actions/commit/f9e7812d9bbb3a3c7c25c12d9b003d8360830225))
+* nix and task ([f3a6b35](https://github.com/ixxeL-actions/actions/commit/f3a6b351464ffda28c428cea1e42479f2c4f0129))
+
 ## [1.2.3](https://github.com/ixxeL-actions/actions/compare/v1.2.2...v1.2.3) (2024-02-14)
 
 
