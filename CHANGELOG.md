@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/ixxeL-actions/actions/compare/v1.1.0...v1.2.0) (2024-02-14)
+
+
+### Features
+
+* testing release ([#5](https://github.com/ixxeL-actions/actions/issues/5)) ([f8ca252](https://github.com/ixxeL-actions/actions/commit/f8ca2526dbd61ad876608dd5525781dcdd58591d))
+
 ## [1.1.0](https://github.com/ixxeL-actions/actions/compare/v1.0.0...v1.1.0) (2024-02-14)
 
 
