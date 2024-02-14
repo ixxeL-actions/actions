@@ -1,15 +1,9 @@
 {
-
-  // setting the type of prerelease in case of prerelease strategy
+  "release-type": "simple",
   "prerelease-type": "beta",
-  // when `manifest-release` creates GitHub Releases per package, create
-  // those as "Draft" releases (which can later be manually published).
-  // absence defaults to false and Releases are created as already Published.
-  "draft": true,
-
-  // when `manifest-release` creates GitHub Releases per package, create
-  // those as "Prerelease" releases that have pre-major or prerelease versions.
-  // absence defaults to false and all versions are fully Published.
+  "separate-pull-requests": false,
+  "draft": false,
+  "skip-github-release": true,
+  "pull-request-title-pattern": "chore${scope}: release${component} ${version}",
   "prerelease": true
-
 }
