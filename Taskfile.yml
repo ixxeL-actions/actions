@@ -12,7 +12,7 @@ tasks:
       - echo {{.CURRENT}}
 
   build:
-    desc: Create build tag
+    desc: Get build tag
     vars:
       NEXTBUILD:
         sh: svu prerelease --pre-release=alpha
@@ -20,7 +20,7 @@ tasks:
       - echo {{.NEXTBUILD}}
 
   prerelease:
-    desc: Create prerelease tag
+    desc: Get prerelease tag
     vars:
       NEXTRC:
         sh: svu prerelease --pre-release=rc
@@ -28,7 +28,7 @@ tasks:
       - echo {{.NEXTRC}}
 
   release:
-    desc: Create release tag
+    desc: Get release tag
     vars:
       NEXT:
         sh: svu n
