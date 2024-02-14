@@ -20,7 +20,7 @@ jobs:
         with:
           version: 3.x
           repo-token: ${{ secrets.MY_RELEASE_PLEASE_TOKEN }}
-      - run: task current
+      - run: task version
       - run: task build
     
       # - uses: google-github-actions/release-please-action@v4
