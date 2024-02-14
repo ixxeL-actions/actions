@@ -39,7 +39,7 @@ tasks:
     desc: Create build tag
     vars:
       NEXTBUILD:
-        sh: svu prerelease --pre-release=alpha
+        sh: svu prerelease --pre-release=build
     cmds:
       - git tag {{.NEXTBUILD}}
       - echo {{.NEXTBUILD}}
