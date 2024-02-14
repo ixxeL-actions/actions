@@ -17,6 +17,8 @@ jobs:
         with:
           fetch-depth: 0
       - uses: DeterminateSystems/nix-installer-action@main
+        with:
+          flakehub: true
       - run: nix build .
       # - uses: arduino/setup-task@v2
       #   with:
