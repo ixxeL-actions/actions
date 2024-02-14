@@ -1,6 +1,7 @@
 {
   "release-type": "simple",
-  "prerelease-type": "beta",
+  "prerelease-type": "rc",
+  "versioning-strategy": "prerelease",
   "separate-pull-requests": false,
   "draft": false,
   "skip-github-release": true,
