@@ -1,0 +1,37 @@
+# https://taskfile.dev
+
+version: "3"
+
+tasks:
+  version:
+    desc: Get current version
+    vars:
+      CURRENT:
+        sh: svu current
+    cmds:
+      - echo {{.CURRENT}}
+
+  build:
+    desc: Create build tag
+    vars:
+      NEXTBUILD:
+        sh: svu prerelease --pre-release=alpha
+    cmds:
+      - echo {{.NEXTBUILD}}
+
+  prerelease:
+    desc: Create prerelease tag
+    vars:
+      NEXTRC:
+        sh: svu prerelease --pre-release=rc
+    cmds:
+      - echo {{.NEXTRC}}
+
+  release:
+    desc: Create release tag
+    vars:
+      NEXT:
+        sh: svu n
+    cmds:
+      - echo {{.NEXT}}
+

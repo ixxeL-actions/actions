@@ -16,7 +16,7 @@ before:
     #- go generate ./...
 builds:
 - skip: true
-
+dist: releaser
 changelog:
   sort: asc
   filters:
