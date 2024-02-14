@@ -13,6 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: google-github-actions/release-please-action@v4
+        id: release
         with:
           # this assumes that you have created a personal access token
           # (PAT) and configured it as a GitHub action secret named
@@ -21,6 +22,11 @@ jobs:
           # this is a built-in strategy in release-please, see "Action Inputs"
           # for more options
           release-type: simple
+      - name: Test build
+        if: ${{ steps.release.outputs.release_created }}
+        run: |
+          echo "THIS IS THE PACKAGE THAT WILL BE BUILT : ${{ steps.release.outputs.tag_name }}"
+          
 
 # name: Release New Version
 
