@@ -35,3 +35,34 @@ tasks:
     cmds:
       - echo {{.NEXT}}
 
+  tag-build:
+    desc: Create build tag
+    vars:
+      NEXTBUILD:
+        sh: svu prerelease --pre-release=alpha
+    cmds:
+      - git tag {{.NEXTBUILD}}
+      - echo {{.NEXTBUILD}}
+      - git push origin --tags
+
+  tag-prerelease:
+    desc: Create prerelease tag
+    vars:
+      NEXTRC:
+        sh: svu prerelease --pre-release=rc
+    cmds:
+      - git tag {{.NEXTRC}}
+      - echo {{.NEXTRC}}
+      - git push origin --tags
+
+  tag-release:
+    desc: Create release tag
+    vars:
+      NEXT:
+        sh: svu n
+    cmds:
+      - git tag {{.NEXT}}
+      - echo {{.NEXT}}
+      - git push origin --tags
+
+
