@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.3](https://github.com/ixxeL-actions/actions/compare/v1.2.2...v1.2.3) (2024-02-14)
+
+
+### Bug Fixes
+
+* prerelease on ([b3bcb92](https://github.com/ixxeL-actions/actions/commit/b3bcb92d398e4d92efa2ff1d356cf1a0cf34fe60))
+* rc1 update ([#15](https://github.com/ixxeL-actions/actions/issues/15)) ([6a741c9](https://github.com/ixxeL-actions/actions/commit/6a741c91cc3446a8e74e878eaf0e8be26676c0dc))
+
 ## [1.2.2](https://github.com/ixxeL-actions/actions/compare/v1.2.1...v1.2.2) (2024-02-14)
 
 
