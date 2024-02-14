@@ -1,42 +1,51 @@
-# name: Release
-# on:
-#   push:
-#     branches:
-#       - "main"
-#     tags:
-#       - "v*"
+name: Release
+on:
+  push:
+    branches:
+      - "main"
+    tags-ignore:
+      - 'v*.*.*-build.*'
 
-# permissions:
-#   contents: write
-#   pull-requests: write
+permissions:
+  contents: write
+  pull-requests: write
 
-# jobs:
-#   release:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Fetch Git entire history for all branches and tags
-#         uses: actions/checkout@v4
-#         with:
-#           fetch-depth: 0
-#       - uses: arduino/setup-task@v2
-#         with:
-#           version: 3.x
-#           repo-token: ${{ secrets.MY_RELEASE_PLEASE_TOKEN }}
-#       - run: |
-#           echo 'deb [trusted=yes] https://apt.fury.io/caarlos0/ /' | sudo tee /etc/apt/sources.list.d/caarlos0.list
-#           sudo apt update
-#           sudo apt install svu
-#       - name: Set up Go
-#         uses: actions/setup-go@v4
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetch Git entire history for all branches and tags
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: arduino/setup-task@v2
+        with:
+          version: 3.x
+          repo-token: ${{ secrets.MY_RELEASE_PLEASE_TOKEN }}
+      - run: |
+          echo 'deb [trusted=yes] https://apt.fury.io/caarlos0/ /' | sudo tee /etc/apt/sources.list.d/caarlos0.list
+          sudo apt update
+          sudo apt install svu
+      - name: Set up Go
+        uses: actions/setup-go@v4
     
-#       - name: Run GoReleaser
-#         uses: goreleaser/goreleaser-action@v5
-#         with:
-#           # either 'goreleaser' (default) or 'goreleaser-pro'
-#           distribution: goreleaser
-#           version: latest
-#           args: check
-#         env:
-#           GITHUB_TOKEN: ${{ secrets.MY_RELEASE_PLEASE_TOKEN }}
+      - name: Run GoReleaser check
+        uses: goreleaser/goreleaser-action@v5
+        with:
+          # either 'goreleaser' (default) or 'goreleaser-pro'
+          distribution: goreleaser
+          version: latest
+          args: check
+        env:
+          GITHUB_TOKEN: ${{ secrets.MY_RELEASE_PLEASE_TOKEN }}
+      - name: Run GoReleaser
+        uses: goreleaser/goreleaser-action@v5
+        with:
+          # either 'goreleaser' (default) or 'goreleaser-pro'
+          distribution: goreleaser
+          version: latest
+          args: release --clean
+        env:
+          GITHUB_TOKEN: ${{ secrets.MY_RELEASE_PLEASE_TOKEN }}
   
 
