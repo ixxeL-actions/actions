@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.2](https://github.com/ixxeL-actions/actions/compare/v1.2.1...v1.2.2) (2024-02-14)
+
+
+### Bug Fixes
+
+* changes to release candidate ([#13](https://github.com/ixxeL-actions/actions/issues/13)) ([b2851ae](https://github.com/ixxeL-actions/actions/commit/b2851ae48bcf8d059c4b30223f1d44a7001bf687))
+
 ## [1.2.1](https://github.com/ixxeL-actions/actions/compare/v1.2.0...v1.2.1) (2024-02-14)
 
 
