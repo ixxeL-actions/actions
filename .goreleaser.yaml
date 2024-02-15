@@ -18,6 +18,7 @@ git:
 
 release:
   prerelease: auto
+  name_template: "v{{ .Version }}"
   header: |
     ## Release Signatures and Provenance
 
@@ -27,9 +28,16 @@ release:
     ## Upgrading
 
     If upgrading from a different minor version, be sure to read the [upgrading](https://argo-cd.readthedocs.io/en/stable/operator-manual/upgrading/overview/) documentation.
-
   footer: |
     **Full Changelog**: https://github.com/ixxeL-actions/actions/compare/{{ .PreviousTag }}...{{ .Tag }}
+
+    ## Helping out
+
+    This release is only possible thanks to **all** the support of some **awesome people**!
+
+    Want to be one of them?
+   
+
 
 
 builds:
@@ -37,28 +45,62 @@ builds:
 
 dist: releaser
 
+# changelog:
+#   use:
+#     github
+#   sort: asc
+#   abbrev: 0
+#   groups: # Regex use RE2 syntax as defined here: https://github.com/google/re2/wiki/Syntax.
+#     - title: 'Features'
+#       regexp: '^.*?feat(\([[:word:]]+\))??!?:.+$'
+#       order: 100
+#     - title: 'Bug fixes'
+#       regexp: '^.*?fix(\([[:word:]]+\))??!?:.+$'
+#       order: 200
+#     - title: 'Documentation'
+#       regexp: '^.*?docs(\([[:word:]]+\))??!?:.+$'
+#       order: 300
+#     - title: 'Dependency updates'
+#       regexp: '^.*?(feat|fix|chore)\(deps?.+\)!?:.+$'
+#       order: 400
+#     - title: 'Other work'
+#       order: 999
+#   filters:
+#     exclude:
+#       - '^test:'
+#       - '^.*?Bump(\([[:word:]]+\))?.+$'
+#       - '^.*?[Bot](\([[:word:]]+\))?.+$'
+
 changelog:
-  use:
-    github
   sort: asc
-  abbrev: 0
-  groups: # Regex use RE2 syntax as defined here: https://github.com/google/re2/wiki/Syntax.
-    - title: 'Features'
-      regexp: '^.*?feat(\([[:word:]]+\))??!?:.+$'
-      order: 100
-    - title: 'Bug fixes'
-      regexp: '^.*?fix(\([[:word:]]+\))??!?:.+$'
-      order: 200
-    - title: 'Documentation'
-      regexp: '^.*?docs(\([[:word:]]+\))??!?:.+$'
-      order: 300
-    - title: 'Dependency updates'
-      regexp: '^.*?(feat|fix|chore)\(deps?.+\)!?:.+$'
-      order: 400
-    - title: 'Other work'
-      order: 999
+  use: github
   filters:
     exclude:
-      - '^test:'
-      - '^.*?Bump(\([[:word:]]+\))?.+$'
-      - '^.*?[Bot](\([[:word:]]+\))?.+$'
+      - "^test:"
+      - "^chore"
+      - "merge conflict"
+      - Merge pull request
+      - Merge remote-tracking branch
+      - Merge branch
+      - go mod tidy
+  groups:
+    - title: Dependency updates
+      regexp: '^.*?(feat|fix|chore)\(deps\)!?:.+$'
+      order: 300
+    - title: "New Features"
+      regexp: '^.*?feat(\([[:word:]]+\))??!?:.+$'
+      order: 100
+    - title: "Security updates"
+      regexp: '^.*?sec(\([[:word:]]+\))??!?:.+$'
+      order: 150
+    - title: "Bug fixes"
+      regexp: '^.*?(fix|refactor)(\([[:word:]]+\))??!?:.+$'
+      order: 200
+    - title: "Documentation updates"
+      regexp: ^.*?docs?(\([[:word:]]+\))??!?:.+$
+      order: 400
+    - title: "Build process updates"
+      regexp: ^.*?(build|ci)(\([[:word:]]+\))??!?:.+$
+      order: 400
+    - title: Other work
+      order: 9999
