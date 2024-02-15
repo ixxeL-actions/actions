@@ -29,7 +29,7 @@ release:
     If upgrading from a different minor version, be sure to read the [upgrading](https://argo-cd.readthedocs.io/en/stable/operator-manual/upgrading/overview/) documentation.
 
   footer: |
-    **Full Changelog**: https://github.com/ixxeL-actions/actions/compare{{ .PreviousTag }}...{{ .Tag }}
+    **Full Changelog**: https://github.com/ixxeL-actions/actions/compare/{{ .PreviousTag }}...{{ .Tag }}
 
 
 builds:
