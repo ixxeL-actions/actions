@@ -13,6 +13,9 @@ version: 1
     # you may remove this if you don't need go generate
     #- go generate ./...
 
+git:
+  tag_sort: -version:creatordate
+
 release:
   prerelease: auto
 
