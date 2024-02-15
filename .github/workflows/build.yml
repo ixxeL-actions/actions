@@ -34,7 +34,7 @@ jobs:
           sudo apt update
           sudo apt install svu
       - run: task version
-      - run: task tag-build
+      - run: task build
   
       # - uses: google-github-actions/release-please-action@v4
       #   id: release
