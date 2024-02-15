@@ -26,6 +26,8 @@ jobs:
           sudo apt install svu
       - name: Set up Go
         uses: actions/setup-go@v4
+        with:
+          go-version: stable
     
       - name: Run GoReleaser check
         uses: goreleaser/goreleaser-action@v5
